@@ -4,9 +4,8 @@ pub fn main() anyerror!void {
     var a = "as";
     const b = 2;
     std.log.info("Hello world! All your codebase are belong to us.", .{});
-    std.log.debug("debug message.", .{});
     std.log.debug("a is {s}, b is {d}", .{ a, b });
-    try heapLeak();
+    // try heapLeak();
     try loop();
 }
 
