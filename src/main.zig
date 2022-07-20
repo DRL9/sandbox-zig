@@ -6,7 +6,7 @@ pub fn main() anyerror!void {
     std.log.info("Hello world! All your codebase are belong to us.", .{});
     std.log.debug("debug message.", .{});
     std.log.debug("a is {s}, b is {d}", .{ a, b });
-    // try heap_leak();
+    try heapLeak();
     try loop();
 }
 
@@ -14,7 +14,7 @@ test "basic test" {
     try std.testing.expectEqual(10, 3 + 7);
 }
 
-fn heap_leak() !void {
+fn heapLeak() !void {
     var general_purpose_allocator = std.heap.GeneralPurposeAllocator(.{}){};
     defer std.debug.assert(!general_purpose_allocator.deinit());
     const gpa = general_purpose_allocator.allocator();
